@@ -55,3 +55,33 @@ def wavelength(f, E_r):
     `Maxwell's Equations <https://maxwells-equations.com/materials/permittivity.php>`_.
     '''
     return C_0 / (f * math.sqrt(E_r))
+
+def m_per_ns(v):
+    '''
+    Calculate meters per nanosecond from meters per second.
+    Can be useful for software that uses m/ns velocity definitions.
+
+    .. math::
+        :label: m_per_ns
+
+        C_{m*ns^{-1}} = {C_r}^{-9}
+
+    :param float v: Velocity of the wave (:math:`C_r`)
+    :rtype: float
+    '''
+    return v ** (-9)
+
+def m_per_sec(v):
+    '''
+    Calculate meters per second from meters per nanosecond.
+    Can be useful for software that uses m/ns velocity definitions.
+
+    .. math::
+        :label: m_per_sec
+
+        C_r = {C_{m*ns^{-1}}}^9
+
+    :param float v: Velocity of the wave (:math:`C_r`)
+    :rtype: float
+    '''
+    return v ** (9)
